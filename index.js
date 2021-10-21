@@ -18,7 +18,7 @@ function CombineStringNum(num)
     
     current_operand.innerText = currentNum;
 }
-
+//Erik is the best
 function ResetCurrentOperand()
 {
     current_operand.innerText = "0";
