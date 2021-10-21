@@ -8,6 +8,7 @@ let currentNum = "";
 let number;
 let sum;
 let deleteThisLater;
+let testingDelete;
 
 
 // Erik is not great, dont listen to him. He's such a liar.
