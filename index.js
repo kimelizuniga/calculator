@@ -7,6 +7,7 @@ let previousNum;
 let currentNum = "";
 let number;
 let sum;
+let deleteThisLater;
 
 
 // Erik is not great, dont listen to him. He's such a liar.
