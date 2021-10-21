@@ -10,27 +10,29 @@
 <body>
     <div class="calculator-grid">
         <div class="output">
-            <div class="previous-operand">123</div>
-            <div class="current-operand">343123</div>
+            <div class="previous-operand" id="previous_operand"></div>
+            <div class="current-operand" id="current_operand">0</div>
         </div>
         <button class="span-two">AC</button>
-        <button>DEL</button>
+        <button id="deleteBtn">DEL</button>
         <button>÷</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
+        <button class="numberBtn" onclick="CombineStringNum('1')">1</button>
+        <button class="numberBtn" onclick="CombineStringNum('2')">2</button>
+        <button class="numberBtn" onclick="CombineStringNum('3')">3</button>
         <button>*</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>+</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
+        <button class="numberBtn" onclick="CombineStringNum('4')">4</button>
+        <button class="numberBtn" onclick="CombineStringNum('5')">5</button>
+        <button class="numberBtn" onclick="CombineStringNum('6')">6</button>
+        <button id="plusBtn" onclick="AddNum()">+</button>
+        <button class="numberBtn" onclick="CombineStringNum('7')">7</button>
+        <button class="numberBtn" onclick="CombineStringNum('8')">8</button>
+        <button class="numberBtn" onclick="CombineStringNum('9')">9</button>
         <button>-</button>
         <button>.</button>
-        <button>0</button>
+        <button class="numberBtn" onclick="CombineStringNum('0')">0</button>
         <button class="span-two">=</button>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
