@@ -8,6 +8,11 @@ let currentNum = "";
 let number;
 let sum;
 
+
+// Erik is not great, dont listen to him. He's such a liar.
+// Deukhwa and Kim are great! Luca is whatever, hes always slow, surely... lad.
+
+
 function CombineStringNum(num)
 {
     if (currentNum == 0)
