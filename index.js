@@ -11,6 +11,7 @@ let number;
 let sum;
 let difference;
 
+// Combines string to be a single number of string
 function CombineStringNum(num)
 {
     if (currentNum == 0)
@@ -26,6 +27,7 @@ function SaveOperator(operator)
     savedOperator = operator;
 }
 
+// Runs the function of an operator depending on which button is pressed
 function EqualOperator()
 {
     switch(savedOperator)
@@ -39,6 +41,7 @@ function EqualOperator()
     }
 }
 
+// Save previous numbers and operators used in a string to show in the output
 function SaveHistory()
 {
     if (history_operand.innerText == "")
@@ -47,6 +50,7 @@ function SaveHistory()
         history_operand.innerText += savedOperator + " " + current_operand.innerText +  " ";
 }
 
+// Add 2 values together and save the sum to the previous operand string
 function AddNum()
 {
     currentNum = parseInt(currentNum);
