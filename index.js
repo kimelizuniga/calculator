@@ -7,6 +7,7 @@ let previousNum;
 let currentNum = "";
 let number;
 let sum;
+let difference;
 let deleteThisLater;
 let testingDelete;
 
@@ -45,4 +46,18 @@ function AddNum(num)
     current_operand.innerText = "0";
     currentNum = "0";
 
+}
+function SubtractNum(num)
+{
+    currentNum - num;
+    currentNum = parseInt(currentNum)
+    if (previous_operand.innerText != "")
+    {
+        difference = parseInt(previous_operand.innerText) - currentNum
+        previous_operand.innerText = difference;
+    }
+    else
+        previous_operand.innerText = currentNum
+    current_operand.innerText = "0";
+    currentNum = "0";
 }
