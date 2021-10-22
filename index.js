@@ -7,7 +7,8 @@ let previousNum;
 let currentNum = "";
 let number;
 let sum;
-let deleteThisLater;
+let difference;
+
 
 
 // Erik is not great, dont listen to him. He's such a liar.
@@ -24,7 +25,7 @@ function CombineStringNum(num)
     
     current_operand.innerText = currentNum;
 }
-
+//Erik is the best
 function ResetCurrentOperand()
 {
     current_operand.innerText = "0";
@@ -44,4 +45,18 @@ function AddNum(num)
     current_operand.innerText = "0";
     currentNum = "0";
 
+}
+function SubtractNum(num)
+{
+    currentNum - num;
+    currentNum = parseInt(currentNum)
+    if (previous_operand.innerText != "")
+    {
+        difference = parseInt(previous_operand.innerText) - currentNum
+        previous_operand.innerText = difference;
+    }
+    else
+        previous_operand.innerText = currentNum
+    current_operand.innerText = "0";
+    currentNum = "0";
 }
