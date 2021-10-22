@@ -9,12 +9,6 @@ let number;
 let sum;
 let difference;
 
-
-
-// Erik is not great, dont listen to him. He's such a liar.
-// Deukhwa and Kim are great! Luca is whatever, hes always slow, surely... lad.
-
-
 function CombineStringNum(num)
 {
     if (currentNum == 0)
@@ -24,11 +18,6 @@ function CombineStringNum(num)
     
     
     current_operand.innerText = currentNum;
-}
-//Erik is the best
-function ResetCurrentOperand()
-{
-    current_operand.innerText = "0";
 }
 
 function AddNum(num)
@@ -46,6 +35,7 @@ function AddNum(num)
     currentNum = "0";
 
 }
+
 function SubtractNum(num)
 {
     currentNum - num;
