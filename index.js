@@ -98,7 +98,7 @@ function SubtractNum()
 
         SaveHistory();
     }
-    
+
     else
     {
         EqualOperator();
@@ -108,6 +108,7 @@ function SubtractNum()
     currentNum = "0";
 }
 
+//Added multiply function
 function multiplyNum()
 {
     currentNum = parseInt(currentNum);
