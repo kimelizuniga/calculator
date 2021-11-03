@@ -37,6 +37,9 @@ function EqualOperator()
         case "-":
             SubtractNum();
             break;
+        case "*":
+            multiplyNum();
+            break;
     }
 
     previous_operand.innerText = current_operand.innerText +  " ";
@@ -87,17 +90,46 @@ function SubtractNum()
     {
         if (previous_operand.innerText != "")
         {
-            difference = parseInt(previous_operand.innerText) - currentNum
-            previous_operand.innerText = difference;
+            difference = parseInt(previous_operand.innerText) - currentNum;
+            current_operand.innerText = difference;
         }
         else
-            previous_operand.innerText = currentNum
+            current_operand.innerText = currentNum;
 
         SaveHistory();
     }
-    else
-        EqualOperator();
     
-    current_operand.innerText = "0";
+    else
+    {
+        EqualOperator();
+        current_operand.innerText = difference;
+    }
+
+    currentNum = "0";
+}
+
+function multiplyNum()
+{
+    currentNum = parseInt(currentNum);
+    if (savedOperator == "*" || !savedOperator)
+    {
+        
+        if (previous_operand.innerText != "")
+        {
+            product = parseInt(previous_operand.innerText) * currentNum;
+            current_operand.innerText = product;
+        }
+        else
+            current_operand.innerText = currentNum;
+
+        SaveHistory();
+    }
+
+    else
+    {
+        EqualOperator();
+        current_operand.innerText = product;
+    }
+        
     currentNum = "0";
 }
