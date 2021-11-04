@@ -134,4 +134,11 @@ function multiplyNum()
     currentNum = "0";
 }
 
+function ACButton()
+{
+currentNum = "";
+previous_operand.innerText = "";
+current_operand.innerText = "0";
+}
+
 // Testing Testing
