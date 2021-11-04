@@ -134,4 +134,4 @@ function multiplyNum()
     currentNum = "0";
 }
 
-// Testing Testing
+// Fixing some functions
