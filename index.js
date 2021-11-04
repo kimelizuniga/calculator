@@ -135,3 +135,11 @@ function multiplyNum()
 }
 
 // Fixing some functions
+function ACButton()
+{
+currentNum = "";
+previous_operand.innerText = "";
+current_operand.innerText = "0";
+}
+
+// Testing Testing
