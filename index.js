@@ -6,9 +6,11 @@ let numberString = document.getElementsByClassName('numberBtn')
 let previousNum;
 let currentNum = "";
 let savedOperator;
+let equalOperator;
 let number;
 let sum;
 let difference;
+let result;
 
 // Combines string to be a single number of string
 function CombineStringNum(num)
@@ -24,6 +26,14 @@ function CombineStringNum(num)
 function SaveOperator(operator)
 {
     savedOperator = operator;
+}
+
+function ConcatenateOperator()
+{
+    if (equalOperator == "=")
+    {
+        previous_operand.innerText += " = ";
+    }
 }
 
 // Runs the function of an operator depending on which button is pressed
@@ -43,6 +53,7 @@ function EqualOperator()
     }
 
     previous_operand.innerText = current_operand.innerText +  " ";
+    savedOperator = "";
 }
 
 // Save previous numbers and operators used in a string to show in the output
@@ -58,27 +69,34 @@ function SaveHistory()
 function AddNum()
 {
     currentNum = parseInt(currentNum);
-    if (savedOperator == "+" || !savedOperator)
+    if (currentNum > 0 || currentNum < 0)
     {
-        
-        if (previous_operand.innerText != "")
+        if (savedOperator == "+" || !savedOperator)
         {
-            sum = parseInt(previous_operand.innerText) + currentNum;
-            current_operand.innerText = sum;
+            
+            if (previous_operand.innerText != "")
+            {
+                sum = parseInt(previous_operand.innerText) + currentNum;
+                current_operand.innerText = sum;
+                
+            }
+            else
+                current_operand.innerText = currentNum;
+
+            SaveHistory();
+            
         }
         else
-            current_operand.innerText = currentNum;
+        {
+            EqualOperator();
+            current_operand.innerText = sum;
+        }
 
-        SaveHistory();
-        
-    }
-    else
-    {
-        EqualOperator();
-        current_operand.innerText = sum;
+        previous_operand.innerText += " + ";
     }
         
     currentNum = "0";
+    equalOperator = "";
 
 }
 
@@ -86,60 +104,64 @@ function SubtractNum()
 {
     currentNum = parseInt(currentNum)
 
-    if (savedOperator == "-" || !savedOperator)
+    if (currentNum > 0 || currentNum < 0)
     {
-        if (previous_operand.innerText != "")
+        if (savedOperator == "-" || !savedOperator)
         {
-            difference = parseInt(previous_operand.innerText) - currentNum;
-            current_operand.innerText = difference;
+            if (previous_operand.innerText != "")
+            {
+                difference = parseInt(previous_operand.innerText) - currentNum;
+                current_operand.innerText = difference;
+            }
+            else
+                current_operand.innerText = currentNum;
+
+            SaveHistory();
         }
         else
-            current_operand.innerText = currentNum;
-
-        SaveHistory();
-    }
-    
-    else
-    {
-        EqualOperator();
-        current_operand.innerText = difference;
+        {
+            EqualOperator();
+            current_operand.innerText = difference;
+        }
     }
 
     currentNum = "0";
+    equalOperator = "";
 }
 
 function multiplyNum()
 {
     currentNum = parseInt(currentNum);
-    if (savedOperator == "*" || !savedOperator)
+    
+    if(currentNum < 0 || currentNum > 0)
     {
-        
-        if (previous_operand.innerText != "")
+        if (savedOperator == "*" || !savedOperator)
         {
-            product = parseInt(previous_operand.innerText) * currentNum;
-            current_operand.innerText = product;
+            
+            if (previous_operand.innerText != "")
+            {
+                product = parseInt(previous_operand.innerText) * currentNum;
+                current_operand.innerText = product;
+            }
+            else
+                current_operand.innerText = currentNum;
+
+            SaveHistory();
         }
         else
-            current_operand.innerText = currentNum;
-
-        SaveHistory();
-    }
-
-    else
-    {
-        EqualOperator();
-        current_operand.innerText = product;
+        {
+            EqualOperator();
+            current_operand.innerText = product;
+        }
     }
         
     currentNum = "0";
+    equalOperator = "";
 }
 
-// Fixing some functions
 function ACButton()
 {
-currentNum = "";
-previous_operand.innerText = "";
-current_operand.innerText = "0";
+    currentNum = "";
+    previous_operand.innerText = "";
+    current_operand.innerText = "0";
 }
-
-// Testing Testing
