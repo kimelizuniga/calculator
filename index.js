@@ -23,6 +23,14 @@ function SaveOperator(operator) {
   savedOperator = operator
 }
 
+function ConcatenateOperator()
+{
+    if (equalOperator == "=")
+    {
+        previous_operand.innerText += " = ";
+    }
+}
+
 // Runs the function of an operator depending on which button is pressed
 
 function EqualOperator() {
@@ -33,6 +41,9 @@ function EqualOperator() {
     case '-':
       SubtractNum()
       break
+    case '*':
+        multiplyNum();
+        break;
     case '÷':
       DivideNum()
       break
@@ -106,59 +117,64 @@ function SubtractNum()
 {
     currentNum = parseInt(currentNum)
 
-    if (savedOperator == "-" || !savedOperator)
+    if (currentNum > 0 || currentNum < 0)
     {
-        if (previous_operand.innerText != "")
+        if (savedOperator == "-" || !savedOperator)
         {
-            difference = parseInt(previous_operand.innerText) - currentNum;
-            current_operand.innerText = difference;
+            if (previous_operand.innerText != "")
+            {
+                difference = parseInt(previous_operand.innerText) - currentNum;
+                current_operand.innerText = difference;
+            }
+            else
+                current_operand.innerText = currentNum;
+
+            SaveHistory();
         }
         else
-            current_operand.innerText = currentNum;
-
-        SaveHistory();
-    }
-    
-    else
-    {
-        EqualOperator();
-        current_operand.innerText = difference;
+        {
+            EqualOperator();
+            current_operand.innerText = difference;
+        }
     }
 
     currentNum = "0";
+    equalOperator = "";
 }
 
 function multiplyNum()
 {
     currentNum = parseInt(currentNum);
-    if (savedOperator == "*" || !savedOperator)
+    
+    if(currentNum < 0 || currentNum > 0)
     {
-        
-        if (previous_operand.innerText != "")
+        if (savedOperator == "*" || !savedOperator)
         {
-            product = parseInt(previous_operand.innerText) * currentNum;
-            current_operand.innerText = product;
+            
+            if (previous_operand.innerText != "")
+            {
+                product = parseInt(previous_operand.innerText) * currentNum;
+                current_operand.innerText = product;
+            }
+            else
+                current_operand.innerText = currentNum;
+
+            SaveHistory();
         }
         else
-            current_operand.innerText = currentNum;
-
-        SaveHistory();
-    }
-
-    else
-    {
-        EqualOperator();
-        current_operand.innerText = product;
+        {
+            EqualOperator();
+            current_operand.innerText = product;
+        }
     }
         
     currentNum = "0";
+    equalOperator = "";
 }
 
 function ACButton()
 {
-currentNum = "";
-previous_operand.innerText = "";
-current_operand.innerText = "0";
+    currentNum = "";
+    previous_operand.innerText = "";
+    current_operand.innerText = "0";
 }
-
-// Testing Testing
