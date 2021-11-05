@@ -24,6 +24,7 @@ function SaveOperator(operator) {
 }
 
 // Runs the function of an operator depending on which button is pressed
+
 function EqualOperator() {
   switch (savedOperator) {
     case '+':
@@ -38,6 +39,7 @@ function EqualOperator() {
   }
 
   previous_operand.innerText = current_operand.innerText + ' '
+
 }
 
 // Save previous numbers and operators used in a string to show in the output
@@ -99,3 +101,64 @@ function DivideNum() {
 
   currentNum = '0'
 }
+
+function SubtractNum()
+{
+    currentNum = parseInt(currentNum)
+
+    if (savedOperator == "-" || !savedOperator)
+    {
+        if (previous_operand.innerText != "")
+        {
+            difference = parseInt(previous_operand.innerText) - currentNum;
+            current_operand.innerText = difference;
+        }
+        else
+            current_operand.innerText = currentNum;
+
+        SaveHistory();
+    }
+    
+    else
+    {
+        EqualOperator();
+        current_operand.innerText = difference;
+    }
+
+    currentNum = "0";
+}
+
+function multiplyNum()
+{
+    currentNum = parseInt(currentNum);
+    if (savedOperator == "*" || !savedOperator)
+    {
+        
+        if (previous_operand.innerText != "")
+        {
+            product = parseInt(previous_operand.innerText) * currentNum;
+            current_operand.innerText = product;
+        }
+        else
+            current_operand.innerText = currentNum;
+
+        SaveHistory();
+    }
+
+    else
+    {
+        EqualOperator();
+        current_operand.innerText = product;
+    }
+        
+    currentNum = "0";
+}
+
+function ACButton()
+{
+currentNum = "";
+previous_operand.innerText = "";
+current_operand.innerText = "0";
+}
+
+// Testing Testing
